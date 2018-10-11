@@ -20,9 +20,8 @@ var pos3 = process.argv.slice(3).join();
 // }
 // }
 //this piece done.
-function pickCommand (){
-  console.log(command)
-switch (command) {
+function pickCommand(){
+  switch (command) {
   case "concert-this":
     concertThis();
     break;
@@ -31,7 +30,7 @@ switch (command) {
     spotifyThisSong();
     break;
 
-  case ("pos3-this"):
+  case ("movie-this"):
     movieThis();
     break;
 
@@ -47,7 +46,7 @@ pickCommand()
 function concertThis() {
   var pos3 = process.argv.slice(3).join();
   // console.log(pos3);
-  request(`https://rest.pos3sintown.com/artists/${pos3}/events?app_id=jenscodingbootcamp`, function (error, response, body) {
+  request(`https://rest.bandsintown.com/artists/${pos3}/events?app_id=jenscodingbootcamp`, function (error, response, body) {
     // console.log('error:', error);
     // console.log('statusCode:', response && response.statusCode);
     // console.log('body:', JSON.parse(body));
