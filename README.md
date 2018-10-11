@@ -4,7 +4,7 @@ This program is designed to allow a user to look up information on multiple type
 "node liri.js" and then one of 4 commands followed by the name of the entertainment they want to look up, in one place a user cand find information about upcoming concerts by their favorite band, information on a song, information on a movie, or take developer provided commands and run them.```
 
 User should cd into the folder called liri-node-app. at this point user should do a node install 
-Upon completion, user should enter into the console the following, separated by spaces 
+Upon completion, user should enter into the console the following, separated by spaces: 
 * position 0- node
 * position 1- liri.app
 * position 2- (choose one of the following commands:
@@ -26,7 +26,47 @@ Upon completion, user should enter into the console the following, separated by 
 
 
 
-(e.g. node liri.js concert-this Gorillaz).
+(e.g. node liri.js concert-this Gorillaz)
+
+Data will be output on the terminal/console, something like this:
+
+GORILLAZ CONCERTS IN YOUR AREA:
+
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        Location: Wells Fargo Center
+      City: Philadelphia, PA
+      Date: 10/11/2018
+      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        Location: Barclays Center
+      City: Brooklyn, NY
+      Date: 10/13/2018
+      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        Location: TD Garden
+      City: Boston, MA
+      Date: 10/14/2018
+      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        Location: United Center
+      City: Chicago, IL
+      Date: 10/16/2018
+      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        Location: Pico Rivera Sports Arena
+      City: Pico Rivera, CA
+      Date: 10/20/2018
+      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        Location: Palacio de los Deportes
+      City: México,
+      Date: 10/24/2018
+      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 ```
