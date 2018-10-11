@@ -6,6 +6,7 @@ var request = require("request");
 var keys = require("./keys.js");
 var fs = require('fs')
 var command = process.argv[2];
+var pos3 = process.argv.slice(3).join();
 
 // below is universal function used for bug-fix. 
 
@@ -19,7 +20,8 @@ var command = process.argv[2];
 // }
 // }
 //this piece done.
-
+function pickCommand (){
+  console.log(command)
 switch (command) {
   case "concert-this":
     concertThis();
@@ -29,7 +31,7 @@ switch (command) {
     spotifyThisSong();
     break;
 
-  case ("movie-this"):
+  case ("pos3-this"):
     movieThis();
     break;
 
@@ -37,18 +39,20 @@ switch (command) {
     doWhatItSays();
     break;
 
-}
+}}
+
+pickCommand()
 // Done: concertThis
 
 function concertThis() {
-  var band = process.argv.slice(3).join();
-  // console.log(band);
-  request(`https://rest.bandsintown.com/artists/${band}/events?app_id=jenscodingbootcamp`, function (error, response, body) {
+  var pos3 = process.argv.slice(3).join();
+  // console.log(pos3);
+  request(`https://rest.pos3sintown.com/artists/${pos3}/events?app_id=jenscodingbootcamp`, function (error, response, body) {
     // console.log('error:', error);
     // console.log('statusCode:', response && response.statusCode);
     // console.log('body:', JSON.parse(body));
     const json = JSON.parse(body);
-    console.log (`${band.toUpperCase()} CONCERTS IN YOUR AREA:`)
+    console.log (`${pos3.toUpperCase()} CONCERTS IN YOUR AREA:`)
     for (var i = 0; i < json.length; i++) {
       if (!error && response.statusCode === 200)
       console.log(`
@@ -65,11 +69,11 @@ function concertThis() {
 
 
 function spotifyThisSong() {
-  var song = process.argv.slice(3).join(" ");
-  if (!song) {
+  var pos3 = process.argv.slice(3).join(" ");
+  if (!pos3) {
     console.log(`You asked for it. . . If you can't pick, I will, and you won't like my choice of earworm. . .`);
 
-    song = "The Sign Ace of Base";
+    pos3 = "The Sign Ace of Base";
   }
 
   var spotify = new Spotify({
@@ -79,7 +83,7 @@ function spotifyThisSong() {
 
   spotify.search({
     type: 'track',
-    query: song
+    query: pos3
   }, function (err, data) {
     if (err) {
       return console.log('Error occurred: ' + err);
@@ -101,17 +105,17 @@ function spotifyThisSong() {
 };
 //done: movieThis
 function movieThis() {
-  let movie = process.argv.slice(3).join(" ");
-  // console.log(`movie=*${movie}*`)
-  if (!movie) {
+  let pos3 = process.argv.slice(3).join(" ");
+  // console.log(`pos3=*${pos3}*`)
+  if (!pos3) {
     console.log(`Having trouble picking a Movie? If you haven't watched Mr. Nobody, then you should.
 
     It's on Netflix!`);
 
-    movie = "Mr. Nobody";
+    pos3 = "Mr. Nobody";
   }
 
-  request("http://www.omdbapi.com/?t=" + movie + "&plot=short&apikey=trilogy", function (error, response, body) {
+  request("http://www.omdbapi.com/?t=" + pos3 + "&plot=short&apikey=trilogy", function (error, response, body) {
     if (!error && response.statusCode === 200) {
 
       console.log(`
@@ -155,4 +159,9 @@ function doWhatItSays() {
   
     // We will then re-display the content as an array for later use.
     console.log(dataArr);
+
+    command = dataArr[0];
+    pos3 = dataArr[1];
+  pickCommand ()
+})
 }
