@@ -28,6 +28,5 @@ Upon completion, user should enter into the console the following, separated by 
 
 (e.g. node liri.js concert-this Gorillaz).
 
-node liri.js 
 
 ```
