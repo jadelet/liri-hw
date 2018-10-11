@@ -1,6 +1,7 @@
 require("dotenv").config();
 var Spotify = require('node-spotify-api');
 var bandsintown = require('bandsintown');
+var moment = require('moment');
 var request = require("request");
 var keys = require("./keys.js");
 var command = process.argv[2];
@@ -40,44 +41,27 @@ switch (command) {
 
 function concertThis() {
   var band = process.argv.slice(3).join();
+  console.log (band);
+  request(`https://rest.bandsintown.com/artists/${band}/events?app_id=jenscodingbootcamp`, function (error, response, body) {
+    console.log('error:', error);
+    console.log('statusCode:', response && response.statusCode);
+    // console.log('body:', JSON.parse(body));
+    const json = JSON.parse(body)
+    console.log (json[0])
 
-  var Events = new BandsInTownEvents();
- 
-  
-  Events.setParams({
-    "app_id":"codingbootcamp", //can be anything
-    "artists":[band]    
-  });
-   
-  //get your events with success and error callbacks
-  Events.getEvents(function( events ){
-    for(var i = 0; i < events.length; i++){
-      console.log( `${events[i].venue.city} 
-      ${ events[i].venue.region}`  );
+    for (var i = 0; i < json.length; i++) {
+      
+        console.log(
+          `Location: ${json[i].venue.name} 
+      City: ${json[i].venue.city}, ${json[i].venue.region}
+      Date: ${moment(json[i].datetime).format("MM/DD/YYYY")}`);
+     
     }
-
-    var moment = require('moment');
-moment().format();
-  },function( errors ){
-    console.log(errors);
-  });
-
- 
-  // if (!band)
-  // var Events = new BandsInTownEvents()
-  // bandsintown.
-  // getArtistEventList(band, "upcoming all")
-  //   .then(function (events) {
-  //     for(var i = 0; i < events.length; i++){
-  //       console.log( events[i].venue.city + ", " + events[i].venue.region );
-  //     }
-  //   },function( errors ){
-  //     console.log(errors);
-  //   });
-};
+  }
+  )
+}
 
 
-//done: Spotify-this-song
 
 function spotifyThisSong() {
   var song = process.argv.slice(3).join(" ");
