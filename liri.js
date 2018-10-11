@@ -4,6 +4,7 @@ var bandsintown = require('bandsintown');
 var moment = require('moment');
 var request = require("request");
 var keys = require("./keys.js");
+var fs = require('fs')
 var command = process.argv[2];
 
 // below is universal function used for bug-fix. 
@@ -37,28 +38,28 @@ switch (command) {
     break;
 
 }
-// TODO: concertThis
+// Done: concertThis
 
 function concertThis() {
   var band = process.argv.slice(3).join();
-  console.log (band);
+  // console.log(band);
   request(`https://rest.bandsintown.com/artists/${band}/events?app_id=jenscodingbootcamp`, function (error, response, body) {
-    console.log('error:', error);
-    console.log('statusCode:', response && response.statusCode);
+    // console.log('error:', error);
+    // console.log('statusCode:', response && response.statusCode);
     // console.log('body:', JSON.parse(body));
-    const json = JSON.parse(body)
-    console.log (json[0])
-
+    const json = JSON.parse(body);
+    console.log (`${band.toUpperCase()} CONCERTS IN YOUR AREA:`)
     for (var i = 0; i < json.length; i++) {
-      
-        console.log(
-          `Location: ${json[i].venue.name} 
+      if (!error && response.statusCode === 200)
+      console.log(`
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        Location: ${json[i].venue.name} 
       City: ${json[i].venue.city}, ${json[i].venue.region}
-      Date: ${moment(json[i].datetime).format("MM/DD/YYYY")}`);
-     
+      Date: ${moment(json[i].datetime).format("MM/DD/YYYY")}
+      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`);
+
     }
-  }
-  )
+  })
 }
 
 
@@ -140,4 +141,18 @@ function movieThis() {
 
 // TODO:  doWhatItSays
 
-function doWhatItSays() {}
+function doWhatItSays() {
+  fs.readFile("random.txt", "utf8", function(error, data) {
+
+     if (error) {
+      return console.log(error);
+    }
+  
+   // console.log(data);
+  
+    // Then split it by commas (to make it more readable)
+    var dataArr = data.split(",");
+  
+    // We will then re-display the content as an array for later use.
+    console.log(dataArr);
+}
