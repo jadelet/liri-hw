@@ -17,7 +17,7 @@ Upon completion, user should enter into the console the following, separated by 
   * for movie-this enter a movie name of your choice
   * for do-what-it-says enter nothing--this is completely out of your hands and entirely a developer vanity IMHO and provides no value to user.
 
-##For example, here are some search examples and their results:
+## For example, here are some search examples and their results:
 
  ![ScreenShot](screenshot.gif)
 
