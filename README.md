@@ -17,8 +17,11 @@ Upon completion, user should enter into the console the following, separated by 
   * for movie-this enter a movie name of your choice
   * for do-what-it-says enter nothing--this is completely out of your hands and entirely a developer vanity IMHO and provides no value to user.
 
-## For example, here are some search examples and their results:
+## DEMO:
 
+See a demo of each option below: 
+ ![Video](liribot_demo_video.gif)
+and a still, in case these videos make you seasick like they do me, but missing the do-what-it-says option:
  ![ScreenShot](screenshot.gif)
 
 
@@ -28,47 +31,3 @@ Upon completion, user should enter into the console the following, separated by 
 
 
 
-(e.g. node liri.js concert-this Gorillaz)
-
-Data will be output on the terminal/console, something like this:
-
-GORILLAZ CONCERTS IN YOUR AREA:
-
-        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        Location: Wells Fargo Center
-      City: Philadelphia, PA
-      Date: 10/11/2018
-      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        Location: Barclays Center
-      City: Brooklyn, NY
-      Date: 10/13/2018
-      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        Location: TD Garden
-      City: Boston, MA
-      Date: 10/14/2018
-      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        Location: United Center
-      City: Chicago, IL
-      Date: 10/16/2018
-      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        Location: Pico Rivera Sports Arena
-      City: Pico Rivera, CA
-      Date: 10/20/2018
-      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        Location: Palacio de los Deportes
-      City: México,
-      Date: 10/24/2018
-      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-```
